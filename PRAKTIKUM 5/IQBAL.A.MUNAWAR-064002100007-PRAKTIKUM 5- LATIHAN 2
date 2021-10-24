@@ -1,0 +1,115 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Oct 18 14:45:18 2021
+
+@author: Iqbal
+"""
+
+ulangin="y"
+while ulangin=="y":
+    print("""
+----------------------------------------------------
+SELAMAT DATANG DI KEBUN BINATANG BOGOR
+TEMPAT BERBAGAI MACAM TEMPAT BERMAIN DAN HEWAN LANGKAH
+----------------------------------------------------
+silahkan masukkan user dan password
+user admin
+pass admin
+    """)
+    user=input("Masukkan username :")
+    password=input("Masukkan password :")
+    if user=="admin" and password=="admin":
+        ngulang="y"
+        while ngulang=="y":
+            print("""
+----------------------------------------------------
+SELAMAT DATANG DI KEBUN BINATANG BOGOR
+TEMPAT BERBAGAI MACAM TEMPAT BERMAIN DAN HEWAN LANGKAH
+----------------------------------------------------
+silahkan pilih pembelian tiket
+ 
+A.TIKET PAKET GOLD
+
+----------------------------------------------------
+            """)
+            pilihtiket = input("Silahkan pilih pembelian tiket dengan memasukkan abjad dari list di atas :")
+            
+            
+            if pilihtiket == "a" or pilihtiket == "A":
+                ulangtikethewan = "y"
+                while ulangtikethewan == "y":
+                    print("""
+------------------------------------
+TIKET PAKET GOLD
+------------------------------------
+PAKET FAMILY 
+------------------------------------
+*BELI TIKET PAKET GOLD 
+Anda Mendapatkan Jalur VIP
+- Bisa Memberi makan binatang Satwa Secara Langsung
+- Keliling Menggunakan Bis yang Kita Sediakan
+- Mendapatkan Vocher Makanan
+------------------------------------                    
+                    """)
+                    pilihan = input("Silahkan Tulis enter untuk selanjutnya :")
+                    
+                    if pilihan == "enter":
+                        stop = "y"
+                        while stop == "y":
+                            from datetime import datetime
+                            
+                            current = datetime.now()
+                            tahun = current.year
+                            bulan = current.month
+                            hari = current.day
+                            jumlahorang = int(input("Jumlah orang :"))
+                            total = []
+                            if jumlahorang > 4:
+                               print("Jumlah maksimal untuk satu tiket 4 orang")
+                               break
+                            nama = []
+                            umur = []
+                            total = 0
+                            for i in range(jumlahorang):
+                                print("\nData ke-", i + 1)
+                                nama_pengunjung = input("Masukkan nama :")
+                                umur_pengunjung = int(input("Masukkan umur :"))
+                                if umur_pengunjung <= 2:
+                                   total += 0
+                                   print("tiket GRATIS!")
+                                elif umur_pengunjung >= 3 and umur_pengunjung <= 12:
+                                   total += 14
+                                   print("tiket sebesar $14")
+                                elif umur_pengunjung >=13 and umur_pengunjung < 65:
+                                   total += 23
+                                   print("tiket sebesar $23")
+                                else:
+                                   total += 18
+                                   print("tiket sebesar $18")
+
+                                       # totalharga = total + jumlahorang
+                                print("Total yang harus dibayar : $", total)
+                               
+                            jumlahbayar = int(input("Masukan uang :$"))
+                            for i in range(umur_pengunjung ):
+                                print("----------------------------------------------")
+                                print("Tiket Orang Masuk Ancol")
+                                print("----------------------------------------------")
+                                print("{}/{}/{}".format(hari, bulan, tahun))
+                                for cetaknama in nama:
+                                    print("nama : {}".format(cetaknama))
+                                for cetakumur in umur:
+                                    print("umur : {}".format(cetakumur))
+                                print("----------------------------------------------")
+                                print("Harga : $", total)
+                                print("Total Harga : $", total)
+                                print("Kembali : $", jumlahbayar - total)
+                                print("----------------------------------------------")
+                                print("Terimakasih")
+                                print("----------------------------------------------")
+                                ulangtikethewan= input("Masukkan y untuk kembali :")
+                                break
+
+            else:
+                print("User dan password salah")
+                ulangin=input("Apakah anda ingin login kembali y/n :")
